@@ -57,7 +57,7 @@ export default function Mixer() {
     actualNPK?: { n: number; p: number; k: number };
     actualWeight?: number;
   } | null>(null);
-  const [pastBlends, setPastBlends] = useLocalStorage<Blend[]>('pastBlends', []);
+  const [_, setPastBlends] = useLocalStorage<Blend[]>('pastBlends', []);
 
   // --- Handlers ---
   const handleCalculateMix = async () => {
@@ -181,7 +181,7 @@ export default function Mixer() {
                 <Typography id="tolerance-slider" gutterBottom>Tolerance (%)</Typography>
                 <Slider
                   value={tolerance}
-                  onChange={(e, newValue) => setTolerance(newValue as number)}
+                  onChange={(_, newValue) => setTolerance(newValue as number)}
                   valueLabelDisplay="auto"
                   step={1}
                   marks
@@ -212,7 +212,7 @@ export default function Mixer() {
             options={allFertilizers}
             getOptionLabel={(option) => `${option.name} (${option.n}-${option.p}-${option.k})`}
             value={selectedFertilizers}
-            onChange={(event, newValue) => {
+            onChange={(_, newValue) => {
               setSelectedFertilizers(newValue);
             }}
             renderInput={(params) => (

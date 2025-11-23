@@ -63,7 +63,7 @@ export async function calculateMix(params: CalculateMixParams): Promise<Calculat
     bounds: [], // This is for variable bounds, defined below
     binaries: [], // Names of binary variables
     generals: [] // Names of general integer variables
-  };
+  } as any;
 
   const M = totalWeight * 2; // A large number for Big-M method
 
